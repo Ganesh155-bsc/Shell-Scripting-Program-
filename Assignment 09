@@ -1,0 +1,49 @@
+9. Write a shell script to perform the basic mathematical operations on 
+two numbers as follows:  
+(a) addition  
+(b) subtraction  
+(c) multiplication  
+(d) division.  
+Write a menu driven program to implement it. 
+
+ans:- 
+
+ #!/bin/bash
+
+echo "Enter first number:"
+read a
+echo "Enter second number:"
+read b
+
+while true
+do
+    echo "======================"
+    echo "  Menu"
+    echo "======================"
+    echo "1. Addition"
+    echo "2. Subtraction"
+    echo "3. Multiplication"
+    echo "4. Division"
+    echo "5. Exit"
+    echo "Enter your choice:"
+    read choice
+
+    case $choice in
+        1) result=$((a + b))
+           echo "Addition = $result" ;;
+        2) result=$((a - b))
+           echo "Subtraction = $result" ;;
+        3) result=$((a * b))
+           echo "Multiplication = $result" ;;
+        4) if [ $b -ne 0 ]
+           then
+               result=$((a / b))
+               echo "Division = $result"
+           else
+               echo "Error: Division by zero"
+           fi ;;
+        5) echo "Exiting..."
+           break ;;
+        *) echo "Invalid choice!" ;;
+    esac
+done
